@@ -1,12 +1,12 @@
 # Breast Cancer Gene Expression Predictor
-by mikep_
+by mikeph_
 
-This project demonstrates a complete **beginner-to-intermediate bioinformatics machine learning workflow** using publicly available gene expression data from GEO.  
+This project demonstrates a complete beginner-to-intermediate bioinformatics machine learning workflow using publicly available gene expression data from GEO.  
 The goal is to classify **cancer vs normal samples** based on transcriptomic profiles and to practice proper evaluation, validation, and interpretation.
 
 ---
 
-## 📌 Project Overview
+## Project Overview
 
 - **Dataset:** GEO accession `GSE45827`
 - **Task:** Binary classification (Cancer vs Normal)
@@ -16,37 +16,9 @@ The goal is to classify **cancer vs normal samples** based on transcriptomic pro
 - **Model:** Logistic Regression
 - **Language:** Python
 
-This project covers:
-- Data loading and preprocessing
-- Label extraction from GEO metadata
-- Feature filtering
-- Model training
-- Cross-validation
-- Permutation testing
-- Visualization (PCA, ROC curve)
-- Exporting results for reproducibility
-
 ---
 
-## 📂 Repository Structure
-
-├── data/
-│ └── GSE45827_series_matrix.txt
-├── output/
-│ ├── expression_matrix.csv
-│ ├── expression_selected_genes.csv
-│ ├── labels.csv
-│ ├── important_genes.csv
-│ ├── X_train.csv
-│ ├── X_test.csv
-│ ├── y_train.csv
-│ └── y_test.csv
-├── gene_expression_ml.ipynb
-├── README.md
-
----
-
-## 🔬 Dataset Description
+## Dataset Description
 
 - Source: **Gene Expression Omnibus (GEO)**
 - Platform: Microarray
@@ -55,18 +27,18 @@ This project covers:
 
 ---
 
-## 🧪 Methods
+## Methods
 
-### 1️⃣ Preprocessing
+### Preprocessing
 - Transposed expression matrix to `samples × genes`
 - Converted all values to numeric
 - Missing values filled using gene-wise means
 
-### 2️⃣ Feature Selection
+### Feature Selection
 - Removed low-variance genes using `VarianceThreshold`
 - Reduced dimensionality from ~30,000 to ~200 genes
 
-### 3️⃣ Model
+### Model
 - Logistic Regression
 - Evaluated using:
   - Train/test split
@@ -75,7 +47,8 @@ This project covers:
 
 ---
 
-## 📊 Results
+## Results
+### On Training Dataset:
 
 | Metric | Value |
 |------|------|
@@ -89,7 +62,7 @@ The classifier perfectly separates cancer and normal samples, indicating a stron
 
 ---
 
-## 📈 Visualizations
+##  Visualizations
 
 - **PCA plot** shows clear separation between cancer and normal samples
 - **ROC curve** demonstrates near-perfect classification performance
@@ -104,15 +77,34 @@ The classifier perfectly separates cancer and normal samples, indicating a stron
 
 ---
 
-## 🧬 Key Outputs
+## Key Outputs
 
 - `important_genes.csv`: genes ranked by logistic regression coefficients
 - `expression_selected_genes.csv`: reduced feature matrix
 - Exported train/test splits for reproducibility
 
 ---
+## Results on external datasets
+### On GSE42568:
 
-## 🚀 How to Run
+| Metric | Value |
+|------|------|
+| Accuracy | 1.00 |
+| ROC-AUC | 0.93 |
+| CV ROC-AUC | 1.00 ± 0.00 |
+| Permutation Test p-value | ~0.01 |
+
+- ### ROC-AUC for GSE42568
+  ![](results_photos/GSE42568-roc.png)
+
+- ### PCA for GSE 42568
+  ![](results_photos/GSE42568-pca.png)
+
+- ### PCA Training Data vs GSE42568
+  ![](results_photos/trainvsGSE42568.png)
+
+---
+## How to Run
 
 ```bash
 conda create -n bio_ml python=3.11
