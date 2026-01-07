@@ -1,8 +1,8 @@
-# Breast Cancer Gene Expression Predictor
+# Gene Expression–Based Breast Cancer Classifier
 by mikeph_
 
-This project demonstrates a complete beginner-to-intermediate bioinformatics machine learning workflow using publicly available gene expression data from GEO.  
-The goal is to classify **cancer vs normal samples** based on transcriptomic profiles and to practice proper evaluation, validation, and interpretation.
+A bioinformatics machine learning workflow using publicly available gene expression data from GEO.  
+The goal is to classify cancer vs normal samples based on transcriptomic profiles and to practice proper evaluation, validation, and interpretation.
 
 ---
 
@@ -64,8 +64,13 @@ The classifier perfectly separates cancer and normal samples, indicating a stron
 
 ##  Visualizations
 
-- **PCA plot** shows clear separation between cancer and normal samples
 - **ROC curve** demonstrates near-perfect classification performance
+
+  ![](results_photos/train-roc.png)
+
+- **PCA plot** shows clear separation between cancer and normal samples
+
+  ![](results_photos/train-pca.png)
 
 ---
 
@@ -86,6 +91,8 @@ The classifier perfectly separates cancer and normal samples, indicating a stron
 ---
 ## Results on external datasets
 ### GSE42568:
+
+[GEO NCBI](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE42568)
 
   | Class        | Precision | Recall | F1‑score | Support |
   | ------------ | --------- | ------ | -------- | ------- |
@@ -136,6 +143,38 @@ The classifier perfectly separates cancer and normal samples, indicating a stron
 
 - ### PCA Training Data vs GSE61304
   ![](results_photos/trainvsGSE61304.png)
+
+### GSE10810
+
+[GEO NCBI](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE10810)
+
+- ### Characteristics
+ 
+  ```
+  Found characteristic rows: 8
+  External labels (0=Normal, 1=Cancer): [27 31]
+  Unique labels: [0 1]
+  External data shape after aligning with training genes: (58, 200)
+  Scaler expects features: 200
+  External data successfully scaled.
+  ```
+
+  |            Class | Precision | Recall | F1-score | Support |
+  | ---------------: | --------: | -----: | -------: | ------: |
+  |                0 |      0.80 |   0.74 |     0.77 |      27 |
+  |                1 |      0.79 |   0.84 |     0.81 |      31 |
+  |     **Accuracy** |           |        | **0.79** |  **58** |
+  |    **Macro Avg** |      0.79 |   0.79 |     0.79 |      58 |
+  | **Weighted Avg** |      0.79 |   0.79 |     0.79 |      58 |
+
+- ### ROC-AUC
+  ![](results_photos/GSE10810-roc.png)
+
+- ### PCA
+  ![](results_photos/GSE10810-pca.png)
+
+- ### PCA Training Data vs GSE61304
+  ![](results_photos/trainvsGSE10810.png)
 
 ---
 ## How to Run
