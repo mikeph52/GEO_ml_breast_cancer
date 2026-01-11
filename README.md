@@ -90,7 +90,7 @@ The classifier perfectly separates cancer and normal samples, indicating a stron
 
 ---
 ## Results on external datasets
-### GSE42568:
+## GSE42568:
 
 [GEO NCBI](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE42568)
 
@@ -110,7 +110,9 @@ The classifier perfectly separates cancer and normal samples, indicating a stron
 - ### PCA Training Data vs GSE42568
   ![](results_photos/trainvsGSE42568.png)
 
-### GSE61304:
+---
+
+## GSE61304:
 
 [GEO NCBI](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE61304)
 
@@ -144,7 +146,9 @@ The classifier perfectly separates cancer and normal samples, indicating a stron
 - ### PCA Training Data vs GSE61304
   ![](results_photos/trainvsGSE61304.png)
 
-### GSE10810
+---
+
+## GSE10810
 
 [GEO NCBI](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE10810)
 
