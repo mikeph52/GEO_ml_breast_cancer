@@ -181,10 +181,47 @@ The classifier perfectly separates cancer and normal samples, indicating a stron
   ![](results_photos/trainvsGSE10810.png)
 
 ---
+
+## GSE65194
+
+[GEO NCBI](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE65194)
+
+- ### Characteristics
+ 
+  ```
+  Found characteristic rows: 4
+  External labels (0=Normal, 1=Cancer): [ 11 153]
+  Unique labels: [0 1]
+  External data shape after aligning with training genes: (164, 200)
+  Scaler expects features: 200
+  External data successfully scaled.
+  ```
+**Best threshold for F1:** `0.9561`
+
+| Class | Precision | Recall | F1-score | Support |
+|------:|----------:|-------:|---------:|--------:|
+| 0 (Normal) | 1.00 | 0.64 | 0.78 | 11 |
+| 1 (Cancer) | 0.97 | 1.00 | 0.99 | 153 |
+| **Accuracy** |  |  | **0.98** | **164** |
+| **Macro avg** | **0.99** | **0.82** | **0.88** | **164** |
+| **Weighted avg** | **0.98** | **0.98** | **0.97** | **164** |
+
+- ### ROC-AUC
+  ![](results_photos/GSE65194-roc.png)
+
+- ### PCA
+  ![](results_photos/GSE65194-pca.png)
+
+- ### PCA Training Data vs GSE61304
+  ![](results_photos/trainvsGSE65194.png)
+
+---
+
 ## How to Run
 
 ```bash
 conda create -n bio_ml python=3.11
 conda activate bio_ml
 pip install pandas numpy scikit-learn matplotlib
+
 
