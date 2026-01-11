@@ -219,9 +219,12 @@ The classifier perfectly separates cancer and normal samples, indicating a stron
 
 ## How to Run
 
+### Install depedencies
+
 ```bash
-conda create -n bio_ml python=3.11
-conda activate bio_ml
-pip install pandas numpy scikit-learn matplotlib
+pip install depedencies.txt
+```
 
+### Download datasets
 
+Because of the file limits of github, the datasets are available [here](https://drive.google.com/file/d/1yFVjjhgFVXe6DbVq7AIMXmPRPRV7bPEg/view?usp=sharing).
