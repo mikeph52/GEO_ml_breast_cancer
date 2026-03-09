@@ -71,7 +71,9 @@ The classifier perfectly separates cancer and normal samples, indicating a stron
 - **PCA plot** shows clear separation between cancer and normal samples
 
   ![](results_photos/train-pca.png)
+- **Volcano plot** visualizes the differential gene expression
 
+  ![](results_photos/GSE45827_volcano.png) 
 ---
 
 ## ⚠️ Notes on Evaluation
