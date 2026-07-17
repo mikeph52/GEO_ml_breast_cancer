@@ -45,10 +45,23 @@ RANDOM_STATE = 42
 # ---------------------------------------------------------------------------
 
 def load_expression(path):
-    """Load a GEO series matrix file, transpose to samples x genes, impute NaNs."""
+    """Load a GEO series matrix file, transpose to samples x genes, impute NaNs.
+
+    Uses numpy-based mean imputation instead of DataFrame.fillna(X.mean()),
+    which is extremely slow on wide matrices (tens of thousands of gene
+    columns) because pandas performs it as a per-column assignment internally.
+    """
     expr = pd.read_csv(path, sep="\t", comment="!", index_col=0)
-    X = expr.T.apply(pd.to_numeric, errors="coerce")
-    X = X.fillna(X.mean())
+    X_df = expr.T.apply(pd.to_numeric, errors="coerce")
+
+    arr = X_df.to_numpy(dtype=float, copy=True)
+    col_means = np.nanmean(arr, axis=0)
+    # Columns that are entirely NaN produce nan means; fall back to 0 for those
+    col_means = np.where(np.isnan(col_means), 0.0, col_means)
+    inds = np.where(np.isnan(arr))
+    arr[inds] = np.take(col_means, inds[1])
+
+    X = pd.DataFrame(arr, index=X_df.index, columns=X_df.columns)
     return X
 
 
